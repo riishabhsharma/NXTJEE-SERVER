@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Error - NXTJEE</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f9fafb;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .error-container {
+      text-align: center;
+      padding: 30px;
+      max-width: 500px;
+    }
+    .error-icon {
+      font-size: 4rem;
+      color: #ef4444;
+    }
+    .error-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin-top: 10px;
+    }
+    .error-message {
+      margin-top: 10px;
+      color: #4b5563;
+    }
+    .home-btn {
+      margin-top: 25px;
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #6366f1;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .home-btn:hover {
+      background-color: #4f46e5;
+    }
+  </style>
+</head>
+<body>
+  <div class="error-container">
+    <div class="error-icon">⚠️</div>
+    <div class="error-title">Oops! Something Went Wrong</div>
+    <p class="error-message"><%= message || "We couldn't process your request. Please try again." %></p>
+    <a href="/" class="home-btn">Back to Home</a>
+  </div>
+</body>
+</html>
