@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JEE Results - NXTJEE</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <link rel="stylesheet" href="/css/results.css">
 </head>
 <body>
@@ -97,7 +98,7 @@
                             </div>
                             <p class="card-description">Total qs attempted in the test</p>
                             <div class="progress-bar">
-                                <div class="progress-fill" style="width: 45.33%"></div>
+                                <div class="progress-fill blue" style="width: <%= (results.total_attempt / 75 * 100).toFixed(2) %>%;"></div>
                             </div>
                         </div>
                     </div>
@@ -116,7 +117,7 @@
                             </div>
                             <p class="card-description">Overall accuracy of the test</p>
                             <div class="progress-bar">
-                                <div class="progress-fill green" style="width: 61.76%"></div>
+                                <div class="progress-fill green" style="width: <%= results.acuracy %>%"></div>
                             </div>
                         </div>
                     </div>
@@ -135,7 +136,7 @@
                             </div>
                             <p class="card-description">Score if we ignore incorrect attempts</p>
                             <div class="progress-bar">
-                                <div class="progress-fill purple" style="width: 28%"></div>
+                               <div class="progress-fill purple" style="width: <%= (results.total_positive / 300 * 100).toFixed(2) %>%;"></div>
                             </div>
                         </div>
                     </div>
@@ -154,7 +155,7 @@
                             </div>
                             <p class="card-description">Marks lost due to wrong attempts</p>
                             <div class="progress-bar">
-                                <div class="progress-fill red" style="width: 4.33%"></div>
+                                <div class="progress-fill red" style="width: <%= (-results.total_negative / 75 * 100).toFixed(2) %>%;"></div>
                             </div>
                         </div>
                     </div>
@@ -250,7 +251,7 @@
                             <div class="circular-progress">
                                 <svg viewBox="0 0 36 36" class="circular-chart">
                                     <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                                    <path class="circle correct-circle" stroke-dasharray="28, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                                    <path class="circle incorrect-circle" stroke-dasharray="<%= ((results.correct_attempt / 75) * 100).toFixed(2) %>, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" ></path>
                                 </svg>
                             </div>
                         </div>
@@ -268,7 +269,7 @@
                             <div class="circular-progress">
                                 <svg viewBox="0 0 36 36" class="circular-chart">
                                     <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                                    <path class="circle incorrect-circle" stroke-dasharray="17.33, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                                    <path class="circle incorrect-circle" stroke-dasharray="<%= ((results.incorrect_attempt / 75) * 100).toFixed(2) %>, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" ></path>
                                 </svg>
                             </div>
                         </div>
@@ -286,14 +287,14 @@
                             <div class="circular-progress">
                                 <svg viewBox="0 0 36 36" class="circular-chart">
                                     <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                                    <path class="circle unattempted-circle" stroke-dasharray="54.67, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                                    <path class="circle unattempted-circle" stroke-dasharray="<%= ((results.unattempt / 75) * 100).toFixed(2) %>, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                                 </svg>
                             </div>
                         </div>
                     </div>
 
                     <!-- Complete Overview -->
-                    <div class="complete-overview">
+                    <!-- <div class="complete-overview">
                         <h3 class="overview-title">Complete Overview</h3>
                         <p class="overview-description">
                             This table lists all the questions and your performance against each question. You can click on any
@@ -314,9 +315,9 @@
                                         <th>Evaluation</th>
                                     </tr>
                                 </thead>
-                                <tbody id="questionsTable">
+                                <tbody id="questionsTable"> -->
                                     <!-- Questions will be populated by JavaScript -->
-                                </tbody>
+                                <!-- </tbody>
                             </table>
                         </div>
 
@@ -328,25 +329,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Action Buttons -->
             <div class="action-buttons">
-                <button onclick=downloadFile() class="action-btn primary">
-                    <i class="fas fa-download"></i>
-                    Download Score Card
-                </button>
-                <script>
-                    function downloadFile() {
-                    const link = document.createElement("a");
-                    link.href = "https://example.com/file.pdf"; // Replace with your file URL
-                    link.download = "filename.pdf"; // The name the file will be saved as
-                    link.click();
-                    }
-                </script>
-                <button class="action-btn secondary">
-                    <i class="fas fa-envelope"></i>
-                    Email Results
+                <!-- Download Button -->
+                <button onclick="downloadPDF()" class="action-btn primary">
+                    <i class="fas fa-download"></i> Download Score Card
                 </button>
             </div>
         </div>
