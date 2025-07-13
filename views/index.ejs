@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NXTJEE - Answer Key Submission Portal</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="min-h-screen">
+    <!-- Header -->
+    <header class="sticky-header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo-container">
+            <div class="nxtjee-logo" onclick="scrollToTop()">
+              <div class="logo-geometric-element"></div>
+              <span class="logo-nxt">NXT</span><span class="logo-jee">JEE</span>
+            </div>
+          </div>
+          <nav class="desktop-nav">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#submit" class="nav-link">Submit Answer Key</a>
+            <a href="#about" class="nav-link">About</a>
+            <button class="btn btn-outline">Contact Us</button>
+          </nav>
+
+          <!-- Mobile menu button -->
+          <div class="mobile-menu-btn">
+            <button class="btn-ghost">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" x2="20" y1="12" y2="12"></line>
+                <line x1="4" x2="20" y1="6" y2="6"></line>
+                <line x1="4" x2="20" y1="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="hero-bg"></div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="badge">JEE Answer Key Portal</div>
+          <h1 class="hero-title">Submit Your <span class="gradient-text">Answer Key</span></h1>
+          <p class="hero-description">
+            Fast, secure, and reliable answer key submission portal for JEE examinations. Get instant verification and
+            detailed analysis of your responses.
+          </p>
+          <div class="hero-buttons">
+            <button class="btn btn-primary" onclick="scrollToElement('submit')">
+              Submit Now
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="arrow-right">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+            <button class="btn btn-secondary">Learn More</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating Elements -->
+      <div class="floating-element element-1"></div>
+      <div class="floating-element element-2"></div>
+      <div class="floating-element element-3"></div>
+    </section>
+
+    <!-- Stats Section -->
+    <!-- <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3 class="stat-value">50,000+</h3>
+            <p class="stat-label">Students Helped</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+              </svg>
+            </div>
+            <h3 class="stat-value">25,000+</h3>
+            <p class="stat-label">Answer Keys Processed</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="7"></circle>
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+              </svg>
+            </div>
+            <h3 class="stat-value">99.9%</h3>
+            <p class="stat-label">Success Rate</p>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Main Form Section -->
+    <section id="submit" class="form-section">
+      <div class="container">
+        <div class="form-container">
+          <div class="section-header">
+            <h2 class="section-title">Submit Your Answer Key</h2>
+            <p class="section-description">
+              Enter your details below to submit your JEE answer key for verification and analysis.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Answer Key Submission</h3>
+              <p class="card-description">
+                Please fill in all the required information accurately
+              </p>
+            </div>
+            <div class="card-content">
+              <div id="success-message" class="success-message hidden">
+                <div class="success-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                </div>
+                <h3 class="success-title">Successfully Submitted!</h3>
+                <p class="success-description">Your answer key has been received and is being processed.</p>
+              </div>
+
+              <form id="answer-key-form" class="submission-form" method="POST" action="/">
+                <!-- Answer Key Link -->
+                <div class="form-group">
+                  <label for="answerKeyLink" class="form-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                    </svg>
+                    Answer Key Link
+                  </label>
+                  <input id="answerKeyLink" type="url" name="answerKeyLink" placeholder="https://cdn3.digialm.com/..." required class="form-input" />
+                  <p class="form-hint">Enter the complete URL of your answer key document</p>
+                </div>
+
+                <!-- Exam Date -->
+                <div class="form-group">
+                  <label for="examDate" class="form-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    Exam Date
+                  </label>
+                  <select id="shift" name="examDate" required class="form-select">
+                    <option value="" disabled selected>Select your exam date</option>
+                    <option value="22 January 2025">22 January 2025</option>
+                    <option value="23 January 2025">23 January 2025</option>
+                    <option value="24 January 2025">24 January 2025</option>
+                    <option value="28 January 2025">28 January 2025</option>
+                    <option value="29 January 2025">29 January 2025</option>
+                    
+
+                  </select>
+                </div>
+
+                <!-- Shift Selection -->
+                <div class="form-group">
+                  <label for="shift" class="form-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    Exam Shift
+                  </label>
+                  <select id="shift" name="shift" required class="form-select">
+                    <option value="" disabled selected>Select your exam shift</option>
+                    <option value="Morning Shift (9:00 AM - 12:00 PM)">Morning Shift (9:00 AM - 12:00 PM)</option>
+                    <option value="Evening Shift (3:00 PM - 6:00 PM)">Evening Shift (3:00 PM - 6:00 PM)</option>
+                  </select>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" id="submit-button" class="btn btn-submit">
+                  <span id="submit-text">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="22" y1="2" x2="11" y2="13"></line>
+                      <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                    Submit Answer Key
+                  </span>
+                  <span id="loading-spinner" class="spinner hidden"></span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Why Choose NXTJEE?</h2>
+          <p class="section-description">
+            Experience the most advanced and secure answer key submission platform designed specifically for JEE
+            aspirants.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon feature-icon-blue">
+              <span role="img" aria-label="Instant Processing">⚡</span>
+            </div>
+            <h3 class="feature-title">Instant Processing</h3>
+            <p class="feature-description">Get immediate confirmation and processing of your answer key submissions.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon feature-icon-green">
+              <span role="img" aria-label="Secure & Reliable">🔒</span>
+            </div>
+            <h3 class="feature-title">Secure & Reliable</h3>
+            <p class="feature-description">Security ensures your data is protected and submissions are safe.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon feature-icon-orange">
+              <span role="img" aria-label="24/7 Support">🎯</span>
+            </div>
+            <h3 class="feature-title">24/7 Support</h3>
+            <p class="feature-description">Round-the-clock technical support to help you with any submission issues.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="nxtjee-logo footer-logo" onclick="scrollToTop()">
+              <div class="logo-geometric-element"></div>
+              <span class="logo-nxt">NXT</span><span class="logo-jee">JEE</span>
+            </div>
+            <p class="footer-description">
+              Empowering JEE aspirants with cutting-edge technology and reliable services.
+            </p>
+            <div class="social-links">
+              <div class="social-icon facebook">f</div>
+              <div class="social-icon twitter">t</div>
+              <div class="social-icon linkedin">in</div>
+            </div>
+          </div>
+
+          <div class="footer-links">
+            <h4 class="footer-heading">Quick Links</h4>
+            <ul class="footer-nav">
+              <li><a href="#" class="footer-link">Home</a></li>
+              <li><a href="#" class="footer-link">Submit Answer Key</a></li>
+              <li><a href="#" class="footer-link">Results</a></li>
+              <li><a href="#" class="footer-link">FAQ</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h4 class="footer-heading">Support</h4>
+            <ul class="footer-nav">
+              <li><a href="#" class="footer-link">Donate</a></li>
+              <li><a href="#" class="footer-link">Contact Us</a></li>
+              <li><a href="#" class="footer-link">Privacy Policy</a></li>
+              <li><a href="#" class="footer-link">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2024 NXTJEE. All rights reserved. Designed by human with Tea ☕</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/js/scrip.js"></script>
+</body>
+
+</html>

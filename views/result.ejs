@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE Results - NXTJEE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/results.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-left">
+                    <button class="back-btn" onclick="window.history.back()">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <div class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                        <div class="logo-container">
+                            <div class="logo-accent"></div>
+                            <span class="logo-text">NXT</span>
+                            <span class="logo-text-accent">JEE</span>
+                        </div>
+                    </div>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="index.html#submit" class="nav-link">Submit Answer Key</a>
+                    <a href="results.html" class="nav-link active">Results</a>
+                    <button class="contact-btn">Contact Us</button>
+                </nav>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <div class="container">
+            <!-- Exam Header -->
+            <div class="exam-header">
+                <h1 class="exam-title">JEE Main <%= results.exam_date %> <%= results.exam_shift %></h1>
+                <p class="exam-description">This is a quick snapshot of your performance in this test.</p>
+                <p class="exam-note">
+                    This section helps you quickly analyse your performance measured in terms of attempts that were correct,
+                    incorrect, unattempted and questions that were not visited at all.
+                </p>
+                <div class="exam-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-calendar"></i>
+                        <span><%= results.exam_date %></span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span><%= results.exam_shift %></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Score Card -->
+            <div class="score-card">
+                <div class="score-content">
+                    <div class="score-left">
+                        <h3 class="score-label">Your Score</h3>
+                        <div class="score-display">
+                            <span class="score-main"><%= results.total_score %></span>
+                            <span class="score-total">/300</span>
+                        </div>
+                        <p class="score-note">
+                            Score calculated based on your uploaded response sheet and NTA's provisional answer key.
+                        </p>
+                    </div>
+                    <div class="score-right">
+                        <div class="calculator-info">NXTJEE Score Calculator</div>
+                        <div class="calculator-url">https://nxtjee.com/calculator</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Overview Section -->
+            <div class="overview-section">
+                <h2 class="section-title">Overview</h2>
+                <div class="overview-grid">
+                    <!-- Questions Attempted -->
+                    <div class="overview-card">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <div class="card-icon blue">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="card-stats">
+                                    <p class="card-label">Qs Attempted</p>
+                                    <h3 class="card-value"><%= results.total_attempt %>/75</h3>
+                                </div>
+                            </div>
+                            <p class="card-description">Total qs attempted in the test</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 45.33%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accuracy -->
+                    <div class="overview-card">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <div class="card-icon green">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="card-stats">
+                                    <p class="card-label">Accuracy</p>
+                                    <h3 class="card-value"><%= results.acuracy %>%</h3>
+                                </div>
+                            </div>
+                            <p class="card-description">Overall accuracy of the test</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill green" style="width: 61.76%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Positive Score -->
+                    <div class="overview-card">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <div class="card-icon purple">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                                <div class="card-stats">
+                                    <p class="card-label">Positive Score</p>
+                                    <h3 class="card-value"><%= results.total_positive %>/300</h3>
+                                </div>
+                            </div>
+                            <p class="card-description">Score if we ignore incorrect attempts</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill purple" style="width: 28%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Marks Lost -->
+                    <div class="overview-card">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <div class="card-icon red">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <div class="card-stats">
+                                    <p class="card-label">Marks Lost</p>
+                                    <h3 class="card-value red"><%= results.total_negative %></h3>
+                                </div>
+                            </div>
+                            <p class="card-description">Marks lost due to wrong attempts</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill red" style="width: 4.33%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Analysis -->
+            <div class="performance-section">
+                <h2 class="section-title">Performance Analysis</h2>
+                <p class="section-description">
+                    This section helps you quickly analyse your performance measured in terms of attempts that were correct,
+                    incorrect, unattempted and questions that were not visited at all.
+                </p>
+
+                <!-- Subject Tabs -->
+                <div class="tabs">
+                    <div class="tab-list">
+                        <button class="tab-btn active" data-tab="overall">OVERALL</button>
+                        <button class="tab-btn" data-tab="mathematics">MATHEMATICS</button>
+                        <button class="tab-btn" data-tab="physics">PHYSICS</button>
+                        <button class="tab-btn" data-tab="chemistry">CHEMISTRY</button>
+                    </div>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content active" id="overall">
+                        <div class="score-summary">
+                            <div class="summary-card">
+                                <h4>Score</h4>
+                                <div class="summary-score">
+                                    <span class="score-number"><%= results.total_score %></span>
+                                    <span class="score-max">/300</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="mathematics">
+                        <div class="score-summary">
+                            <div class="summary-card">
+                                <h4>Score</h4>
+                                <div class="summary-score">
+                                    <span class="score-number"><%= results.m_score %></span>
+                                    <span class="score-max">/100</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="physics">
+                        <div class="score-summary">
+                            <div class="summary-card">
+                                <h4>Score</h4>
+                                <div class="summary-score">
+                                    <span class="score-number"><%= results.p_score %></span>
+                                    <span class="score-max">/100</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="chemistry">
+                        <div class="score-summary">
+                            <div class="summary-card">
+                                <h4>Score</h4>
+                                <div class="summary-score">
+                                    <span class="score-number"><%= results.c_score %></span>
+                                    <span class="score-max">/100</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Test Breakdown -->
+                <div class="breakdown-section">
+                    <h3 class="breakdown-title">Test Breakdown</h3>
+                    <p class="breakdown-description">
+                        Subject-wise breakdown of your correct, incorrect, unattempted and not visited questions in a test.
+                    </p>
+
+                    <!-- Breakdown Stats -->
+                    <div class="breakdown-stats">
+                        <div class="stat-card correct">
+                            <div class="stat-header">
+                                <div class="stat-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <p class="stat-label">Correct Attempts</p>
+                                    <h4 class="stat-value" id="correctCount"><%= results.correct_attempt %>/75</h4>
+                                </div>
+                            </div>
+                            <div class="circular-progress">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                                    <path class="circle correct-circle" stroke-dasharray="28, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="stat-card incorrect">
+                            <div class="stat-header">
+                                <div class="stat-icon">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <p class="stat-label">Incorrect Attempts</p>
+                                    <h4 class="stat-value" id="incorrectCount"><%= results.incorrect_attempt %>/75</h4>
+                                </div>
+                            </div>
+                            <div class="circular-progress">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                                    <path class="circle incorrect-circle" stroke-dasharray="17.33, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="stat-card unattempted">
+                            <div class="stat-header">
+                                <div class="stat-icon">
+                                    <i class="fas fa-minus"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <p class="stat-label">Unattempted Qs</p>
+                                    <h4 class="stat-value" id="unattemptedCount"><%= results.unattempt %>/75</h4>
+                                </div>
+                            </div>
+                            <div class="circular-progress">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                                    <path class="circle unattempted-circle" stroke-dasharray="54.67, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Complete Overview -->
+                    <div class="complete-overview">
+                        <h3 class="overview-title">Complete Overview</h3>
+                        <p class="overview-description">
+                            This table lists all the questions and your performance against each question. You can click on any
+                            row to view the question.
+                        </p>
+
+                        <div class="table-container">
+                            <table class="results-table">
+                                <thead>
+                                    <tr>
+                                        <th>Qs No</th>
+                                        <th>Subject Name</th>
+                                        <th>Section</th>
+                                        <th>Question</th>
+                                        <th>Your Answer</th>
+                                        <th>Correct Answer</th>
+                                        <th>Status</th>
+                                        <th>Evaluation</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="questionsTable">
+                                    <!-- Questions will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="show-more-container">
+                            <button class="show-more-btn" id="showMoreBtn">
+                                Show All Questions
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button onclick=downloadFile() class="action-btn primary">
+                    <i class="fas fa-download"></i>
+                    Download Score Card
+                </button>
+                <script>
+                    function downloadFile() {
+                    const link = document.createElement("a");
+                    link.href = "https://example.com/file.pdf"; // Replace with your file URL
+                    link.download = "filename.pdf"; // The name the file will be saved as
+                    link.click();
+                    }
+                </script>
+                <button class="action-btn secondary">
+                    <i class="fas fa-envelope"></i>
+                    Email Results
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Question Modal -->
+    <div class="modal-overlay" id="questionModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Question <span id="modalQuestionNumber">1</span></h3>
+                <button class="modal-close" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="question-image">
+                    <img src="/placeholder.svg?height=300&width=500" alt="Question Image" id="questionImage">
+                </div>
+                <div class="answer-comparison">
+                    <div class="answer-item">
+                        <span class="answer-label">Your Answer:</span>
+                        <span class="answer-value" id="userAnswerValue">A</span>
+                    </div>
+                    <div class="answer-item">
+                        <span class="answer-label">Correct Answer:</span>
+                        <span class="answer-value correct" id="correctAnswerValue">B</span>
+                    </div>
+                    <div class="answer-item">
+                        <span class="answer-label">Status:</span>
+                        <span class="status-value" id="statusValue">Incorrect</span>
+                    </div>
+                    <div class="answer-item">
+                        <span class="answer-label">Subject:</span>
+                        <span class="subject-value" id="subjectValue">Mathematics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/results.js"></script>
+</body>
+</html>
