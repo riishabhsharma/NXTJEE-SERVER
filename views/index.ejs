@@ -305,6 +305,26 @@
     </footer>
   </div>
 
+  <!-- Loading Overlay -->
+<div id="loading-overlay" class="loading-overlay hidden">
+  <div class="loader-box">
+    <div class="logo-title">NXT<span class="logo-accent">JEE</span></div>
+    <div class="dot-loader">
+      <span></span><span></span><span></span>
+    </div>
+    <p class="loading-text">Evaluating your answer key...</p>
+  </div>
+</div>
+
+<!-- Script to show the loading overlay -->
+<script>
+  const form = document.querySelector('form');
+  form.addEventListener('submit', () => {
+    document.getElementById('loading-overlay').classList.remove('hidden');
+  });
+</script>
+
+
   <script src="/js/scrip.js"></script>
 </body>
 
